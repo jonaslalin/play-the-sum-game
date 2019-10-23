@@ -38,14 +38,14 @@ import { map, mapTo, scan, startWith, switchMapTo } from 'rxjs/operators';
   `
 })
 export class AppComponent {
-  sum: Observable<number>;
-  sumCssClass: Observable<string>;
+  sum$: Observable<number>;
+  sumCssClass$: Observable<string>;
   private plusOne$ = new Subject<void>();
   private minusOne$ = new Subject<void>();
   private reset$ = new BehaviorSubject<void>(undefined); // flow from start
 
   constructor() {
-    this.sum = this.reset$.pipe(
+    this.sum$ = this.reset$.pipe(
       switchMapTo(
         merge(
           this.plusOne$.pipe(mapTo(1)),
@@ -57,7 +57,7 @@ export class AppComponent {
       )
     );
 
-    this.sumCssClass = this.sum.pipe(
+    this.sumCssClass$ = this.sum$.pipe(
       map(sum => (sum > 0 ? 'text-primary' : sum < 0 ? 'text-danger' : ''))
     );
   }
