@@ -1,3 +1,3 @@
 # Play the sum game
 
-Demo of RxJS's `scan` operator.
+Demo of RxJS's powerful `scan` operator.
