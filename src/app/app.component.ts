@@ -10,7 +10,10 @@ import { map, mapTo, scan, startWith, switchMapTo } from 'rxjs/operators';
         <h1 class="card-header">Play the sum game</h1>
         <div class="card-body">
           <h2 class="card-title">
-            Sum: <span [ngClass]="sumCssClass | async">{{ sum | async }}</span>
+            Sum:
+            <span [ngClass]="sumCssClass$ | async">
+              {{ sum$ | async }}
+            </span>
           </h2>
           <p class="card-text">
             Add or subtract to the sum by using the buttons below.
